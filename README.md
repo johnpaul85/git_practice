@@ -1,1 +1,4 @@
-# git_practice
+# Mixed Messages
+### Horoscope Generator
+
+Developed by johnpaul85
