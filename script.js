@@ -2,7 +2,6 @@ var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
-
 const mmdd = parseInt(mm+dd,10);
 
 const zodiac = [
@@ -27,31 +26,14 @@ const Water = ['kind', 'open minded', 'wise'];
 
 const category = ['career', 'relationship', 'life'];
 
-let selectedType = '';
-let randomType = '';
-let randomCategory = '';
-let horoscope = 'Try again.';
-
 function generate(){
-    const randomIndex1 = Math.floor(Math.random() * 3);
     const randomIndex2 = Math.floor(Math.random() * 3);
     for(let i=0; i < zodiac.length+1; i++){
         if(zodiac[i].dateStart < zodiac[i].dateEnd && zodiac[i].dateStart <= mmdd && zodiac[i].dateEnd >= mmdd || zodiac[i].dateStart > zodiac[i].dateEnd && zodiac[i].dateStart <= mmdd || zodiac[i].dateStart > zodiac[i].dateEnd && mmdd <= zodiac[i].dateEnd){
-            if(zodiac[i].type === 'Fire'){
-                selectedType = 'Fire';
-                randomType = Fire[randomIndex1];
-            } else if(zodiac[i].type ==='Earth'){
-                selectedType = 'Earth';
-                randomType = Earth[randomIndex1];
-            } else if(zodiac[i].type === 'Air'){
-                selectedType = 'Air';
-                randomType = Air[randomIndex1];
-             } else if(zodiac[i].type === 'Water'){
-                selectedType = 'Water';
-                randomType = Water[randomIndex1];
-            };
-            randomCategory = category[randomIndex2];
-            horoscope = `${zodiac[i].name}: Your ${randomCategory} will be ${randomType}!`;
+            let selectedType = zodiac[i].type;
+            let randomType = eval(selectedType)[Math.floor(Math.random() * eval(selectedType).length)];
+            let randomCategory = category[Math.floor(Math.random() * category.length)];
+            let horoscope = `${zodiac[i].name}: Your ${randomCategory} will be ${randomType}!`;
             return horoscope;
         };
     };
