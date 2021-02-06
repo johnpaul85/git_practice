@@ -27,7 +27,6 @@ const Water = ['kind', 'open minded', 'wise'];
 const category = ['career', 'relationship', 'life'];
 
 function generate(){
-    const randomIndex2 = Math.floor(Math.random() * 3);
     for(let i=0; i < zodiac.length+1; i++){
         if(zodiac[i].dateStart < zodiac[i].dateEnd && zodiac[i].dateStart <= mmdd && zodiac[i].dateEnd >= mmdd || zodiac[i].dateStart > zodiac[i].dateEnd && zodiac[i].dateStart <= mmdd || zodiac[i].dateStart > zodiac[i].dateEnd && mmdd <= zodiac[i].dateEnd){
             let selectedType = zodiac[i].type;
